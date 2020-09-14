@@ -26,7 +26,7 @@ if(isset($_POST['update']))
     } else {
         //updating the 'users' table/collection
         $db->users->update(
-                        array('_id' => new MongoId($id)),
+                        array('_id' => new  MongoDB\BSON\ObjectID($id)),
                         array('$set' => $user)
                     );
         
@@ -40,7 +40,7 @@ if(isset($_POST['update']))
 $id = $_GET['id'];
  
 //selecting data associated with this particular id
-$result = $db->users->findOne(array('_id' => new MongoId($id)));
+$result = $db->users->findOne(array('_id' => new  MongoDB\BSON\ObjectID($id)));
  
 $name = $result['name'];
 $age = $result['age'];
